@@ -6,7 +6,7 @@ PlayerSettings:
   serializedVersion: 10
   productGUID: 0348a5f4b33a344d4906053112d93095
   AndroidProfiler: 0
-  defaultScreenOrientation: 4
+  defaultScreenOrientation: 0
   targetDevice: 2
   useOnDemandResources: 0
   accelerometerFrequency: 60
@@ -376,7 +376,7 @@ PlayerSettings:
   webGLCompressionFormat: 1
   scriptingDefineSymbols:
     4: VUFORIA_IOS_SETTINGS
-    7: VUFORIA_ANDROID_SETTINGS
+    7: VUFORIA_ANDROID_SETTINGS;VUFORIA_SAMPLE_ORIENTATION_SETTINGS
     14: VUFORIA_WSA_SETTINGS
   platformArchitecture: {}
   scriptingBackend: {}
@@ -462,7 +462,8 @@ PlayerSettings:
   XboxOneAllowedProductIds: []
   XboxOnePersistentLocalStorageSize: 0
   vrEditorSettings: {}
-  cloudServicesEnabled: {}
+  cloudServicesEnabled:
+    UNet: 1
   cloudProjectId: 02061845-6a40-4cb4-849f-d072a1fa44b0
   projectName: arprototype
   organizationId: yanjingzhaisun
