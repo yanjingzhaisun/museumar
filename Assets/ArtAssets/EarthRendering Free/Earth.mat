@@ -42,10 +42,10 @@ Material:
     m_Floats:
     - first:
         name: _AtmosphereMultiply
-      second: 1.5
+      second: 2.224
     - first:
         name: _AtmospherePow
-      second: 3.1607144
+      second: 5.66
     - first:
         name: _SunsetIntensity
       second: 0.7464286
@@ -58,7 +58,7 @@ Material:
       second: {r: 1, g: 1, b: 1, a: 1}
     - first:
         name: _LightDir
-      second: {r: -1, g: 0, b: 0, a: 1}
+      second: {r: 1.34, g: 0, b: 0, a: 1}
     - first:
         name: _SkyColor
       second: {r: 0.08235294, g: 0.18431373, b: 0.3529412, a: 1}
