@@ -1170,6 +1170,7 @@ GameObject:
   m_Component:
   - component: {fileID: 543322797}
   - component: {fileID: 543322799}
+  - component: {fileID: 543322798}
   m_Layer: 0
   m_Name: PenguinRoot
   m_TagString: Untagged
@@ -1192,6 +1193,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &543322798
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 543322796}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aaeab375671de4a69bb811fec365e3c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pinObject: {fileID: 1591943273937620, guid: ede04253e371d46a6810a50adbb44f71, type: 2}
+  working: 0
 --- !u!114 &543322799
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1204,7 +1218,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   udtEventHandler: {fileID: 221532566}
-  proximityDetector: {fileID: 1155495009}
   penguinCollider: {fileID: 1102065482}
   msgFindThePenguin: {fileID: 47662364}
   msgTapThePenguin: {fileID: 510241985}
@@ -2159,7 +2172,6 @@ GameObject:
   - component: {fileID: 1102065485}
   - component: {fileID: 1102065484}
   - component: {fileID: 1102065482}
-  - component: {fileID: 1102065483}
   m_Layer: 0
   m_Name: PenguinModel
   m_TagString: Untagged
@@ -2181,8 +2193,8 @@ Transform:
   m_Father: {fileID: 1155495008}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &1102065482
-BoxCollider:
+--- !u!135 &1102065482
+SphereCollider:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
@@ -2191,21 +2203,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Radius: 0.5000001
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1102065483
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1102065480}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf15793641b8049299e96d497d1a6c6b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 10
-  Paused: 0
 --- !u!23 &1102065484
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2378,7 +2377,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1155495007}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 283877f0e3edd48d28f4aa92742fcc28, type: 3}
   m_Name: 
@@ -3006,6 +3005,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1713871491}
   - component: {fileID: 1713871490}
+  - component: {fileID: 1713871492}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -3037,6 +3037,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1713871492
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1713871489}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35e2a37b97f6349ab85d8a5a6f31335f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1775586012 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: bf30d577eead1ef40bcf2b404289daf4, type: 2}

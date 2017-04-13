@@ -18,7 +18,7 @@ public class PoseController : MonoBehaviour
     #region PRIVATE_MEMBERS
 
     [SerializeField] private UDTEventHandler udtEventHandler;
-    [SerializeField] private ProximityDetector proximityDetector;
+    //[SerializeField] private ProximityDetector proximityDetector;
     [SerializeField] private Collider penguinCollider;
     [SerializeField] private GameObject msgFindThePenguin;
     [SerializeField] private GameObject msgTapThePenguin;
@@ -37,7 +37,7 @@ public class PoseController : MonoBehaviour
     }
 
     // initial mode
-	private TrackingMode mTrackingMode = TrackingMode.DEVICE_ORIENTATION;
+	private TrackingMode mTrackingMode = TrackingMode.UDT_BASED;
 
     private Vector3 mPosOffsetAtTargetCreation;
 
@@ -69,7 +69,7 @@ public class PoseController : MonoBehaviour
 
     void Start()
     {
-		mTrackingMode = TrackingMode.CONSTRAINED_TO_CAMERA;
+		mTrackingMode = TrackingMode.UDT_BASED;
 
         VuforiaARController.Instance.RegisterVuforiaStartedCallback(OnVuforiaStarted);
 
@@ -152,9 +152,9 @@ public class PoseController : MonoBehaviour
                         ShowPenguin(true);
 
                         // Wake up the proximity detector
-                        if (proximityDetector) {
-                            proximityDetector.Sleep(false);
-                        }
+                        //if (proximityDetector) {
+                        //    proximityDetector.Sleep(false);
+                        //}
 
                         // Save a snapshot of the current position offset
                         // between the object and the target center
@@ -209,9 +209,10 @@ public class PoseController : MonoBehaviour
         ShowPenguin(true);
 
         // Make the proximity detector sleep
-        if (proximityDetector) {
-            proximityDetector.Sleep(true);
-        }
+        //if (proximityDetector) {
+        //    proximityDetector.Sleep(true);
+        //}
+		ChangeMode();
     }
 
     #endregion //PUBLIC_METHODS
@@ -253,6 +254,7 @@ public class PoseController : MonoBehaviour
 
             // Show the quality indicator
             udtEventHandler.ShowQualityIndicator(true);
+			GetComponent<EarthBehaviour>().working = false;
 
             // Hide the penguin
             ShowPenguin(false);
@@ -328,6 +330,9 @@ public class PoseController : MonoBehaviour
         if (Input.GetMouseButtonDown(0)) {
             RaycastHit hit = new RaycastHit();
             if (Physics.Raycast(cam.ScreenPointToRay(Input.mousePosition), out hit)) {
+				if (hit.collider == penguinCollider)
+					GetComponent<EarthBehaviour>().working = true;
+				else GetComponent<EarthBehaviour>().working = false;
                 return (hit.collider == penguinCollider);
             }
         }
