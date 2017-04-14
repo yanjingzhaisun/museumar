@@ -146,6 +146,14 @@ GameObject:
   - component: {fileID: 664696960}
   - component: {fileID: 664696964}
   - component: {fileID: 664696965}
+  - component: {fileID: 664696967}
+  - component: {fileID: 664696966}
+  - component: {fileID: 664696972}
+  - component: {fileID: 664696970}
+  - component: {fileID: 664696969}
+  - component: {fileID: 664696971}
+  - component: {fileID: 664696968}
+  - component: {fileID: 664696973}
   m_Layer: 0
   m_Name: Flowchart
   m_TagString: Untagged
@@ -178,9 +186,9 @@ MonoBehaviour:
     width: 1114
     height: 859
   selectedBlocks:
-  - {fileID: 664696961}
+  - {fileID: 664696967}
   selectedCommands:
-  - {fileID: 664696965}
+  - {fileID: 664696973}
   variables: []
   description: 
   stepPause: 0
@@ -209,13 +217,13 @@ MonoBehaviour:
   description: 
   character: {fileID: 0}
   portrait: {fileID: 0}
-  voiceOverClip: {fileID: 0}
+  voiceOverClip: {fileID: 8300000, guid: 6796b6eee0c3640af8f5a98a238e7ee6, type: 3}
   showAlways: 1
   showCount: 1
   extendPrevious: 0
   fadeWhenDone: 1
   waitForClick: 1
-  stopVoiceover: 1
+  stopVoiceover: 0
   setSayDialog: {fileID: 0}
 --- !u!114 &664696961
 MonoBehaviour:
@@ -231,8 +239,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 32
-    y: 52
+    x: 14
+    y: 102
     width: 120
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
@@ -245,6 +253,8 @@ MonoBehaviour:
   - {fileID: 664696960}
   - {fileID: 664696964}
   - {fileID: 664696965}
+  - {fileID: 664696966}
+  - {fileID: 664696972}
 --- !u!114 &664696962
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -298,7 +308,7 @@ MonoBehaviour:
   extendPrevious: 0
   fadeWhenDone: 1
   waitForClick: 1
-  stopVoiceover: 1
+  stopVoiceover: 0
   setSayDialog: {fileID: 0}
 --- !u!114 &664696965
 MonoBehaviour:
@@ -324,7 +334,201 @@ MonoBehaviour:
   extendPrevious: 0
   fadeWhenDone: 1
   waitForClick: 1
-  stopVoiceover: 1
+  stopVoiceover: 0
+  setSayDialog: {fileID: 0}
+--- !u!114 &664696966
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 664696958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 841589fc622bc494aa5405f416fa1301, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 5
+  indentLevel: 0
+  text: '"bird wings"'
+  description: 
+  targetBlock: {fileID: 664696967}
+  hideIfVisited: 0
+  interactable:
+    booleanRef: {fileID: 0}
+    booleanVal: 1
+  setMenuDialog: {fileID: 0}
+--- !u!114 &664696967
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 664696958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d3d73aef2cfc4f51abf34ac00241f60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nodeRect:
+    serializedVersion: 2
+    x: 166
+    y: 47
+    width: 120
+    height: 40
+  tint: {r: 1, g: 1, b: 1, a: 1}
+  useCustomTint: 0
+  itemId: 4
+  blockName: New Block1
+  description: 
+  eventHandler: {fileID: 0}
+  commandList:
+  - {fileID: 664696969}
+  - {fileID: 664696973}
+--- !u!114 &664696968
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 664696958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 841589fc622bc494aa5405f416fa1301, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 10
+  indentLevel: 0
+  text: '"bird wings"'
+  description: 
+  targetBlock: {fileID: 664696967}
+  hideIfVisited: 0
+  interactable:
+    booleanRef: {fileID: 0}
+    booleanVal: 1
+  setMenuDialog: {fileID: 0}
+--- !u!114 &664696969
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 664696958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 8
+  indentLevel: 0
+  storyText: 'Correct! Avialae is a clade, or group, of flying dinosaurs that include
+    modern birds.
+
+'
+  description: 
+  character: {fileID: 0}
+  portrait: {fileID: 0}
+  voiceOverClip: {fileID: 8300000, guid: 6796b6eee0c3640af8f5a98a238e7ee6, type: 3}
+  showAlways: 1
+  showCount: 1
+  extendPrevious: 0
+  fadeWhenDone: 1
+  waitForClick: 1
+  stopVoiceover: 0
+  setSayDialog: {fileID: 0}
+--- !u!114 &664696970
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 664696958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d3d73aef2cfc4f51abf34ac00241f60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nodeRect:
+    serializedVersion: 2
+    x: 166
+    y: 153
+    width: 120
+    height: 40
+  tint: {r: 1, g: 1, b: 1, a: 1}
+  useCustomTint: 0
+  itemId: 7
+  blockName: New Block2
+  description: 
+  eventHandler: {fileID: 0}
+  commandList:
+  - {fileID: 664696971}
+  - {fileID: 664696968}
+--- !u!114 &664696971
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 664696958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 9
+  indentLevel: 0
+  storyText: 'No, try again! '
+  description: 
+  character: {fileID: 0}
+  portrait: {fileID: 0}
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  extendPrevious: 0
+  fadeWhenDone: 1
+  waitForClick: 1
+  stopVoiceover: 0
+  setSayDialog: {fileID: 0}
+--- !u!114 &664696972
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 664696958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 841589fc622bc494aa5405f416fa1301, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 6
+  indentLevel: 0
+  text: '"air lizard" '
+  description: 
+  targetBlock: {fileID: 664696970}
+  hideIfVisited: 0
+  interactable:
+    booleanRef: {fileID: 0}
+    booleanVal: 1
+  setMenuDialog: {fileID: 0}
+--- !u!114 &664696973
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 664696958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 11
+  indentLevel: 0
+  storyText: 'I''m here today to try to find more members of my phylogenetic tree
+    among the dinosaurs in the Saurischian hall. But I need your help! '
+  description: 
+  character: {fileID: 0}
+  portrait: {fileID: 0}
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  extendPrevious: 0
+  fadeWhenDone: 1
+  waitForClick: 1
+  stopVoiceover: 0
   setSayDialog: {fileID: 0}
 --- !u!1 &677506764
 GameObject:
@@ -406,7 +610,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 5641a354b36994e21bf8892d4de221b3, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -9.58
+      value: -9.65
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 5641a354b36994e21bf8892d4de221b3, type: 3}
       propertyPath: m_LocalRotation.x
