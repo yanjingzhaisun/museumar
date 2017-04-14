@@ -6,9 +6,15 @@ public class InputController : MonoBehaviour
 {
 
 	static InputController _instance = null;
-	float swipeSpeed = 0.05F;
+	float swipeSpeed = 0.5F;
 	float inputX;
 	float inputY;
+
+	public Camera cam { 
+		get { 
+			return Vuforia.DigitalEyewearARController.Instance.PrimaryCamera ?? Camera.main;
+		}
+	}
 	Vector2 touchDeltaPosition;
 	public static InputController instance
 	{
@@ -51,13 +57,16 @@ public class InputController : MonoBehaviour
 			{
 				touchDeltaPosition = Input.GetTouch(0).position - previousPosition;
 				previousPosition = Input.GetTouch(0).position;
-				inputX += touchDeltaPosition.x * swipeSpeed;
-				inputY += touchDeltaPosition.y * swipeSpeed;
+				inputX = touchDeltaPosition.x * swipeSpeed;
+				inputY = touchDeltaPosition.y * swipeSpeed;
 				//Debug.Log("X, Y: " + touchDeltaPosition.x + ", " + touchDeltaPosition.y);
 			}
-			else if (Input.GetTouch(0).phase == TouchPhase.Began) {
+			else if (Input.GetTouch(0).phase == TouchPhase.Began)
+			{
 				previousPosition = Input.GetTouch(0).position;
 			}
 		}
 	}
+
+
 }

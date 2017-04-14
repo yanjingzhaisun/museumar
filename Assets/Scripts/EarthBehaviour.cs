@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EarthBehaviour : MonoBehaviour
 {
-	Transform earthModel;
+	public Transform earthModel;
 	Vector2 hitPosition;
 	public GameObject pinObject;
 
@@ -21,12 +21,14 @@ public class EarthBehaviour : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
+		if (!working)
+			return;
 		Vector2 inputInfo = InputController.instance.GetTouchHitPosition();
 
 		if (inputInfo != Vector2.zero)
 		{
 			RaycastHit hitInfo;
-			var ray = Camera.main.ScreenPointToRay(inputInfo);
+			var ray = InputController.instance.cam.ScreenPointToRay(inputInfo);
 
 			if (Physics.Raycast(ray, out hitInfo))
 			{
@@ -41,7 +43,7 @@ public class EarthBehaviour : MonoBehaviour
 				go.transform.position = hitInfo.point;
 			}
 		}
-		Debug.Log(InputController.instance.GetTouchMoveAxis());
+		Debug.Log("inputAxis:" + InputController.instance.GetTouchMoveAxis());
 		earthModel.Rotate(new Vector3(0f, InputController.instance.GetTouchMoveAxis().x * (-1f), 0f));
 
 	}

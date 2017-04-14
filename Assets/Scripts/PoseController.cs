@@ -25,8 +25,6 @@ public class PoseController : MonoBehaviour
     [SerializeField] private GameObject msgTapTheCircle;
     [SerializeField] private GameObject msgTryAgain;
     [SerializeField] private GameObject msgGetCloser;
-    [SerializeField] private GameObject msgModeDT;
-    [SerializeField] private GameObject msgModeUDT;
 	[SerializeField] private GameObject sldTime;
 
     private enum TrackingMode
@@ -63,8 +61,7 @@ public class PoseController : MonoBehaviour
         msgTryAgain.SetActive(false);
         msgGetCloser.SetActive(false);
 
-        msgModeDT.SetActive(true);
-        msgModeUDT.SetActive(false);
+        
     }
 
     void Start()
@@ -83,15 +80,17 @@ public class PoseController : MonoBehaviour
     {
         if (CheckTapOnObject()) {
             ChangeMode();
+			Transform t = GameObject.Find("SampleUI").transform.Find("SampleCanvas/RootPanel/Slider");
+			t.gameObject.SetActive(true);
         }
 
-        if ((Screen.orientation == ScreenOrientation.Portrait) && (Screen.width < Screen.height)) {
-            msgModeDT.GetComponent<RectTransform>().anchoredPosition = new Vector2(0.0f, 150.0f);
-            msgModeUDT.GetComponent<RectTransform>().anchoredPosition = new Vector2(0.0f, 150.0f);
-        } else {
-            msgModeDT.GetComponent<RectTransform>().anchoredPosition = new Vector2(0.0f, 30.0f);
-            msgModeUDT.GetComponent<RectTransform>().anchoredPosition = new Vector2(0.0f, 30.0f);
-        }
+        //if ((Screen.orientation == ScreenOrientation.Portrait) && (Screen.width < Screen.height)) {
+        //    msgModeDT.GetComponent<RectTransform>().anchoredPosition = new Vector2(0.0f, 150.0f);
+        //    msgModeUDT.GetComponent<RectTransform>().anchoredPosition = new Vector2(0.0f, 150.0f);
+        //} else {
+        //    msgModeDT.GetComponent<RectTransform>().anchoredPosition = new Vector2(0.0f, 30.0f);
+        //    msgModeUDT.GetComponent<RectTransform>().anchoredPosition = new Vector2(0.0f, 30.0f);
+        //}
     }
 
     void LateUpdate()
@@ -143,7 +142,7 @@ public class PoseController : MonoBehaviour
 
                         // Update header text
                         DisplayMessage(msgGetCloser);
-                        DisplayModeLabel(msgModeUDT);
+                        //DisplayModeLabel(msgModeUDT);
 
                         // Hide quality indicator
                         udtEventHandler.ShowQualityIndicator(false);
@@ -200,13 +199,15 @@ public class PoseController : MonoBehaviour
 
         // Update message and mode text
         DisplayMessage(msgFindThePenguin);
-        DisplayModeLabel(msgModeDT);
+        //DisplayModeLabel(msgModeDT);
 
         // Hide the quality indicator
         udtEventHandler.ShowQualityIndicator(false);
 
         // Show the penguin
         ShowPenguin(true);
+
+
 
         // Make the proximity detector sleep
         //if (proximityDetector) {
@@ -231,7 +232,7 @@ public class PoseController : MonoBehaviour
     private IEnumerator ResetAfter(float seconds)
     {
         yield return new WaitForSeconds(seconds);
-        ResetState();
+		GameManager.instance.ResetState();
     }
 
     private void ChangeMode()
@@ -250,7 +251,7 @@ public class PoseController : MonoBehaviour
             mTrackingMode = TrackingMode.CONSTRAINED_TO_CAMERA;
 
             DisplayMessage(msgTapTheCircle);
-            DisplayModeLabel(msgModeUDT);
+            //DisplayModeLabel(msgModeUDT);
 
             // Show the quality indicator
             udtEventHandler.ShowQualityIndicator(true);
@@ -272,7 +273,7 @@ public class PoseController : MonoBehaviour
 
             } else {
                 DisplayMessage(msgTryAgain);
-                DisplayModeLabel(msgModeUDT);
+                //DisplayModeLabel(msgModeUDT);
             }
         }
     }
@@ -313,8 +314,8 @@ public class PoseController : MonoBehaviour
 
     private void DisplayModeLabel(GameObject modeObj)
     {
-        msgModeDT.SetActive((msgModeDT == modeObj));
-        msgModeUDT.SetActive((msgModeUDT == modeObj));
+        //msgModeDT.SetActive((msgModeDT == modeObj));
+        //msgModeUDT.SetActive((msgModeUDT == modeObj));
     }
 
 	private void DisplaySlider(GameObject sliderObj) {

@@ -32,7 +32,7 @@ public class LoadingScreen : MonoBehaviour
 
         if (mChangeLevel)
         {
-            LoadNextSceneAsync();
+			LoadTargetScenenAsync();
             mChangeLevel = false;
         }
     }
@@ -44,6 +44,10 @@ public class LoadingScreen : MonoBehaviour
     {
         UnityEngine.SceneManagement.SceneManager.LoadSceneAsync(UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex+1);
     }
+
+	private void LoadTargetScenenAsync() { 
+		UnityEngine.SceneManagement.SceneManager.LoadSceneAsync(GameManager.instance.targetScene);
+	}
 
     private RawImage FindSpinnerImage()
     {
