@@ -928,7 +928,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: <size=22>Look around and tap the cirle when it turns green</size>.
+  m_Text: 'Where''d he go?
+
+    <size=22>Look around and tap the circle when it turns green</size>.'
 --- !u!222 &432621954
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1201,7 +1203,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aaeab375671de4a69bb811fec365e3c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  earthModel: {fileID: 0}
   pinObject: {fileID: 1591943273937620, guid: ede04253e371d46a6810a50adbb44f71, type: 2}
   working: 0
 --- !u!114 &543322799
@@ -1234,7 +1235,7 @@ GameObject:
   - component: {fileID: 672478516}
   - component: {fileID: 672478515}
   m_Layer: 5
-  m_Name: ConfirmButtonBorder
+  m_Name: ConfirmButtonBordary
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1831,7 +1832,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Tap the earth.
+  m_Text: Tap the penguin.
 --- !u!222 &848311208
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3097,47 +3098,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1802128594}
---- !u!1 &1845891048
-GameObject:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 1845891050}
-  - component: {fileID: 1845891049}
-  m_Layer: 0
-  m_Name: _FungusState
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1845891049
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1845891048}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 61dddfdc5e0e44ca298d8f46f7f5a915, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  selectedFlowchart: {fileID: 0}
---- !u!4 &1845891050
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1845891048}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1903235725
 GameObject:
   m_ObjectHideFlags: 0
@@ -3205,7 +3165,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Look around to find the earth.
+  m_Text: Look around to find the penguin.
 --- !u!222 &1903235728
 CanvasRenderer:
   m_ObjectHideFlags: 0

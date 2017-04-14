@@ -8,6 +8,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Vuforia-0-Splash.unity
   - enabled: 1
+    path: Assets/Scenes/DesTestFungus.unity
+  - enabled: 1
     path: Assets/Scenes/Vuforia-1-Loading.unity
   - enabled: 1
     path: Assets/Scenes/Vuforia-2-ARScene.unity

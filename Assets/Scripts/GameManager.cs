@@ -88,9 +88,13 @@ public class GameManager : MonoBehaviour
 		FindObjectsOfType<EarthBehaviour>().ToList().ForEach(p => p.working = false);
 		Transform t = GameObject.Find("SampleUI").transform.Find("SampleCanvas/RootPanel/Slider");
 		t.gameObject.SetActive(false);
-		t = GameObject.Find("SampleUI").transform.Find("SampleCanvas/RootPanel/ConfirmButtonBordary");
+		t = GameObject.Find("SampleUI").transform.Find("SampleCanvas/RootPanel/ConfirmButtonBorder");
 		t.gameObject.SetActive(false);
 
+	}
+
+	public void QuizCorrect() {
+		GotoNextStages("Vuforia-2-ARScene");
 	}
 
 	public void GotoNextStages(string name)
