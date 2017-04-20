@@ -64,7 +64,7 @@ namespace Fungus.EditorUtils
             SceneView view = SceneView.lastActiveSceneView;
             if (view != null)
             {
-                Camera sceneCam = view.camera;
+                UnityEngine.Camera sceneCam = view.camera;
                 Vector3 pos = sceneCam.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 10f));
                 pos.z = 0f;
                 go.transform.position = pos;
