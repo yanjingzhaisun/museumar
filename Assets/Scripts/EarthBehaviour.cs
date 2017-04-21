@@ -18,7 +18,7 @@ public class EarthBehaviour : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-		Vector2 inputInfo = InputController.instance.GetTouchHitPosition();
+		Vector2 inputInfo = InputController.instance.GetTouchHitPosition(InputController.TouchHit.Release);
 
 		if (inputInfo != Vector2.zero)
 		{

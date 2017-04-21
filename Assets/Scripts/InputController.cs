@@ -10,8 +10,10 @@ public class InputController : MonoBehaviour
 	float inputX;
 	float inputY;
 
-	public Camera cam { 
-		get { 
+	public Camera cam
+	{
+		get
+		{
 			return Vuforia.DigitalEyewearARController.Instance.PrimaryCamera ?? Camera.main;
 		}
 	}
@@ -29,17 +31,57 @@ public class InputController : MonoBehaviour
 		}
 	}
 
-	public Vector2 GetTouchHitPosition()
+	public enum TouchHit
 	{
-		if (Input.GetButton("Fire1"))
-		{
-			Debug.Log("Input Controller: Fire button!");
-			if (Input.touchCount > 0)
-				return Input.GetTouch(0).position;
+		Down,
+		Duration,
+		Release
+	}
 
+	public Vector2 GetTouchHitPosition(TouchHit touchitType)
+	{
+		switch (touchitType)
+		{
+			case TouchHit.Duration:
+				if (Input.GetButton("Fire1"))
+				{
+					Debug.Log("Input Controller: Fire button!");
+					if (Input.touchCount > 0)
+						return Input.GetTouch(0).position;
+
+				}
+				break;
+
+			case TouchHit.Down:
+				if (Input.GetButtonDown("Fire1"))
+				{
+					Debug.Log("Input Controller: Fire button!");
+					if (Input.touchCount > 0)
+						return Input.GetTouch(0).position;
+
+				}
+				break;
+
+			case TouchHit.Release:
+				if (Input.GetButtonUp("Fire1"))
+				{
+					Debug.Log("Input Controller: Fire button!");
+					if (Input.touchCount > 0)
+						return Input.GetTouch(0).position;
+
+				}
+				break;
+
+			default:
+				break;
 		}
 		return Vector2.zero;
 	}
+
+
+
+
+
 	public Vector2 GetTouchMoveAxis()
 	{
 		if (Input.touchCount == 0 || Input.GetTouch(0).phase == TouchPhase.Ended)
