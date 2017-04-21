@@ -7,22 +7,17 @@ public class EarthBehaviour : MonoBehaviour
 	public Transform earthModel;
 	Vector2 hitPosition;
 	public GameObject pinObject;
+	public Transform lightPosition;
+	public Transform lightIndicator;
 
-	public bool working = false;
 
-	// Use this for initialization
-	void Start()
-	{
-		earthModel = transform.Find("PenguinContainer/PenguinModel");
-	}
+
 
 
 
 	// Update is called once per frame
 	void Update()
 	{
-		if (!working)
-			return;
 		Vector2 inputInfo = InputController.instance.GetTouchHitPosition();
 
 		if (inputInfo != Vector2.zero)
@@ -45,6 +40,9 @@ public class EarthBehaviour : MonoBehaviour
 		}
 		Debug.Log("inputAxis:" + InputController.instance.GetTouchMoveAxis());
 		earthModel.Rotate(new Vector3(0f, InputController.instance.GetTouchMoveAxis().x * (-1f), 0f));
+		Vector3 relPos = transform.InverseTransformPoint(lightPosition.position);
+		GetComponent<Renderer>().material.SetVector("_LightDir", new Vector4(relPos.x, relPos.y, relPos.z, 1));
+		lightIndicator.localPosition = relPos;
 
 	}
 }
