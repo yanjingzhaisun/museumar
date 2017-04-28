@@ -155,6 +155,11 @@ GameObject:
   - component: {fileID: 664696968}
   - component: {fileID: 664696973}
   - component: {fileID: 664696974}
+  - component: {fileID: 664696976}
+  - component: {fileID: 664696977}
+  - component: {fileID: 664696975}
+  - component: {fileID: 664696978}
+  - component: {fileID: 664696979}
   m_Layer: 0
   m_Name: Flowchart
   m_TagString: Untagged
@@ -187,9 +192,9 @@ MonoBehaviour:
     width: 1114
     height: 859
   selectedBlocks:
-  - {fileID: 664696967}
+  - {fileID: 664696976}
   selectedCommands:
-  - {fileID: 664696974}
+  - {fileID: 664696979}
   variables: []
   description: 
   stepPause: 0
@@ -519,8 +524,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 11
   indentLevel: 0
-  storyText: 'I''m here today to try to find more members of my phylogenetic tree
-    among the dinosaurs in the Saurischian hall. But I need your help! '
+  storyText: 'I''m looking for more members of my family tree here, among the dinosaurs
+    in the Saurischian hall. But I need your help! '
   description: 
   character: {fileID: 0}
   portrait: {fileID: 0}
@@ -548,6 +553,140 @@ MonoBehaviour:
   targetObject: {fileID: 1713618139}
   methodName: QuizCorrect
   delay: 0
+--- !u!114 &664696975
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 664696958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 15
+  indentLevel: 0
+  storyText: 'Clue 1: This dinosaur''s name includes a word that means "fragile."
+    Scientists chose this word because of the hollow spaces in this dinosaur''s neck
+    bones, which are similar to the ones that modern birds have. '
+  description: 
+  character: {fileID: 0}
+  portrait: {fileID: 0}
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  extendPrevious: 0
+  fadeWhenDone: 1
+  waitForClick: 1
+  stopVoiceover: 1
+  setSayDialog: {fileID: 0}
+--- !u!114 &664696976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 664696958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d3d73aef2cfc4f51abf34ac00241f60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nodeRect:
+    serializedVersion: 2
+    x: 345.21872
+    y: 48.070686
+    width: 120
+    height: 40
+  tint: {r: 1, g: 1, b: 1, a: 1}
+  useCustomTint: 0
+  itemId: 13
+  blockName: New Block3
+  description: 
+  eventHandler: {fileID: 0}
+  commandList:
+  - {fileID: 664696977}
+  - {fileID: 664696975}
+  - {fileID: 664696978}
+  - {fileID: 664696979}
+--- !u!114 &664696977
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 664696958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 14
+  indentLevel: 0
+  storyText: 'Even though most dinosaurs couldn''t fly, birds share many traits in
+    common with dinosaurs! I have some clues about these traits to help you find my
+    relatives.  '
+  description: 
+  character: {fileID: 0}
+  portrait: {fileID: 0}
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  extendPrevious: 0
+  fadeWhenDone: 1
+  waitForClick: 1
+  stopVoiceover: 1
+  setSayDialog: {fileID: 0}
+--- !u!114 &664696978
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 664696958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 16
+  indentLevel: 0
+  storyText: 'Clue 2: This dinosaur is hungry! Using a forceful bite with it''s upper
+    jaws, this dinosaur could eat a carcass in a manner similar to a modern-day bald
+    eagle. '
+  description: 
+  character: {fileID: 0}
+  portrait: {fileID: 0}
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  extendPrevious: 0
+  fadeWhenDone: 1
+  waitForClick: 1
+  stopVoiceover: 1
+  setSayDialog: {fileID: 0}
+--- !u!114 &664696979
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 664696958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 17
+  indentLevel: 0
+  storyText: 'Clue 3: Watch out for those claws! '
+  description: 
+  character: {fileID: 0}
+  portrait: {fileID: 0}
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  extendPrevious: 0
+  fadeWhenDone: 1
+  waitForClick: 1
+  stopVoiceover: 1
+  setSayDialog: {fileID: 0}
 --- !u!1001 &674429710
 Prefab:
   m_ObjectHideFlags: 0
@@ -783,6 +922,48 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneInfo: 
+--- !u!1001 &1741632082
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 2146523602}
+    m_Modifications:
+    - target: {fileID: 400034, guid: 1f0124cfb0d56a3498a0dafb9a7b0dc6, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 2.257531
+      objectReference: {fileID: 0}
+    - target: {fileID: 400034, guid: 1f0124cfb0d56a3498a0dafb9a7b0dc6, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400034, guid: 1f0124cfb0d56a3498a0dafb9a7b0dc6, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400034, guid: 1f0124cfb0d56a3498a0dafb9a7b0dc6, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400034, guid: 1f0124cfb0d56a3498a0dafb9a7b0dc6, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400034, guid: 1f0124cfb0d56a3498a0dafb9a7b0dc6, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400034, guid: 1f0124cfb0d56a3498a0dafb9a7b0dc6, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400034, guid: 1f0124cfb0d56a3498a0dafb9a7b0dc6, type: 2}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 1f0124cfb0d56a3498a0dafb9a7b0dc6, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &1902733436
 GameObject:
   m_ObjectHideFlags: 0
@@ -870,3 +1051,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &2146523602 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 400000, guid: 5641a354b36994e21bf8892d4de221b3, type: 3}
+  m_PrefabInternal: {fileID: 967773925}
