@@ -65,8 +65,7 @@ public class GameManager : MonoBehaviour
 		}
 		tweener.Pause();
 		EarthBehaviour earth = GameObject.Find("PenguinRoot").GetComponent<EarthBehaviour>();
-		if (earth.working)
-			tweener = FindObjectOfType<EarthBehaviour>().earthModel.DORotate(new Vector3(0, 3600f, 0), 3f, RotateMode.FastBeyond360).SetEase(Ease.InOutExpo);
+
 	}
 	void ShowTimeEra(string v)
 	{
@@ -85,11 +84,12 @@ public class GameManager : MonoBehaviour
 	public void ResetState()
 	{
 		FindObjectsOfType<PoseController>().ToList().ForEach(p => p.ResetState());
-		FindObjectsOfType<EarthBehaviour>().ToList().ForEach(p => p.working = false);
 		Transform t = GameObject.Find("SampleUI").transform.Find("SampleCanvas/RootPanel/Slider");
-		t.gameObject.SetActive(false);
+		if (t!=null)
+			t.gameObject.SetActive(false);
 		t = GameObject.Find("SampleUI").transform.Find("SampleCanvas/RootPanel/ConfirmButtonBorder");
-		t.gameObject.SetActive(false);
+		if (t!=null)
+			t.gameObject.SetActive(false);
 
 	}
 

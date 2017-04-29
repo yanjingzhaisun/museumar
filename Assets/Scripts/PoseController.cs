@@ -72,7 +72,7 @@ public class PoseController : MonoBehaviour
 
         udtEventHandler.ShowQualityIndicator(false); // don't show at start
 
-        penguinModel = GameObject.Find("PenguinModel");
+        penguinModel = GameObject.Find("Bone01");
         penguinShadow = GameObject.Find("Penguin_Shadow");
     }
 
@@ -255,7 +255,7 @@ public class PoseController : MonoBehaviour
 
             // Show the quality indicator
             udtEventHandler.ShowQualityIndicator(true);
-			GetComponent<EarthBehaviour>().working = false;
+
 
             // Hide the penguin
             ShowPenguin(false);
@@ -331,9 +331,6 @@ public class PoseController : MonoBehaviour
         if (Input.GetMouseButtonDown(0)) {
             RaycastHit hit = new RaycastHit();
             if (Physics.Raycast(cam.ScreenPointToRay(Input.mousePosition), out hit)) {
-				if (hit.collider == penguinCollider)
-					GetComponent<EarthBehaviour>().working = true;
-				else GetComponent<EarthBehaviour>().working = false;
                 return (hit.collider == penguinCollider);
             }
         }
