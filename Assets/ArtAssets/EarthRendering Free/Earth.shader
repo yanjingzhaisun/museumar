@@ -10,7 +10,12 @@ Shader "Earth"
 		
 		_CloudAndNightTex("Cloud And Night", 2D) = "black" {}
 
+
+
 		_LightDir("Light Dir", Vector) = (-1,0,0,1)
+		_targetUV("Input UV Position", Vector) = (0,0,0,0)
+		_answerLocalWorld("Output Local Position", Vector) = (0,0,0,0)
+
 	}
 
 	SubShader 
@@ -31,6 +36,9 @@ Shader "Earth"
 			float4 _AtmosphereColor;
 			float _AtmospherePow;
 			float _AtmosphereMultiply;
+			float2 _targetUV;
+			float3 _answerLocalWorld;
+
 
 			float4 _LightDir;
 
@@ -62,6 +70,8 @@ Shader "Earth"
 				half3 viewDir = normalize(ObjSpaceViewDir(input.pos));
 				half3 normalDir = input.normal;
 				output.atmosphere = output.diffuse * _AtmosphereColor.rgb * pow(1 - saturate(dot(viewDir, normalDir)), _AtmospherePow) * _AtmosphereMultiply;
+
+
 
 				return output;
 			}

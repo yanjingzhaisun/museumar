@@ -84,7 +84,7 @@ public class InputController : MonoBehaviour
 
 	public Vector2 GetTouchMoveAxis()
 	{
-		if (Input.touchCount == 0 || Input.GetTouch(0).phase == TouchPhase.Ended)
+		if (Input.touchCount == 0 || Input.GetTouch(0).phase == TouchPhase.Ended || Input.GetTouch(0).phase == TouchPhase.Began)
 			return Vector2.zero;
 		return new Vector2(inputX, inputY);
 	}
@@ -101,11 +101,14 @@ public class InputController : MonoBehaviour
 				previousPosition = Input.GetTouch(0).position;
 				inputX = touchDeltaPosition.x * swipeSpeed;
 				inputY = touchDeltaPosition.y * swipeSpeed;
-				//Debug.Log("X, Y: " + touchDeltaPosition.x + ", " + touchDeltaPosition.y);
+				Debug.Log("X, Y: " + touchDeltaPosition.x + ", " + touchDeltaPosition.y);
 			}
-			else if (Input.GetTouch(0).phase == TouchPhase.Began)
+			else if (Input.GetTouch(0).phase == TouchPhase.Began || Input.GetTouch(0).phase == TouchPhase.Ended)
 			{
 				previousPosition = Input.GetTouch(0).position;
+				touchDeltaPosition = Vector2.zero;
+				inputX = touchDeltaPosition.x * swipeSpeed;
+				inputY = touchDeltaPosition.y * swipeSpeed;
 			}
 		}
 	}
