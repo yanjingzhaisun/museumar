@@ -72,7 +72,7 @@ public class PoseController : MonoBehaviour
 
         udtEventHandler.ShowQualityIndicator(false); // don't show at start
 
-        penguinModel = GameObject.Find("PenguinModel");
+        penguinModel = GameObject.Find("Bone01");
         penguinShadow = GameObject.Find("Penguin_Shadow");
     }
 

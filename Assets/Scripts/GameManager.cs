@@ -85,9 +85,11 @@ public class GameManager : MonoBehaviour
 	{
 		FindObjectsOfType<PoseController>().ToList().ForEach(p => p.ResetState());
 		Transform t = GameObject.Find("SampleUI").transform.Find("SampleCanvas/RootPanel/Slider");
-		t.gameObject.SetActive(false);
+		if (t!=null)
+			t.gameObject.SetActive(false);
 		t = GameObject.Find("SampleUI").transform.Find("SampleCanvas/RootPanel/ConfirmButtonBorder");
-		t.gameObject.SetActive(false);
+		if (t!=null)
+			t.gameObject.SetActive(false);
 
 	}
 
