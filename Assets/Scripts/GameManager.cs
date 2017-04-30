@@ -94,6 +94,7 @@ public class GameManager : MonoBehaviour
 	}
 
 	public void QuizCorrect() {
+		Debug.Log("Quiz Correct!");
 		GotoNextStages("Vuforia-2-ARScene");
 	}
 
