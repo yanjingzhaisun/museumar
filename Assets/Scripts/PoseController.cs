@@ -7,6 +7,7 @@ countries.
 using UnityEngine;
 using System.Collections;
 using Vuforia;
+using DG.Tweening;
 
 public class PoseController : MonoBehaviour
 {
@@ -26,6 +27,10 @@ public class PoseController : MonoBehaviour
     [SerializeField] private GameObject msgTryAgain;
     [SerializeField] private GameObject msgGetCloser;
 	[SerializeField] private GameObject sldTime;
+
+
+	public bool isShown = false;
+	Sequence sequence;
 
     private enum TrackingMode
     {
@@ -80,8 +85,12 @@ public class PoseController : MonoBehaviour
     {
         if (CheckTapOnObject()) {
             ChangeMode();
-			Transform t = GameObject.Find("SampleUI").transform.Find("SampleCanvas/RootPanel/Slider");
-			t.gameObject.SetActive(true);
+			if (isShown)
+			{
+				Debug.Log("Capture!");
+				CaptureDino();
+			}
+
         }
 
         //if ((Screen.orientation == ScreenOrientation.Portrait) && (Screen.width < Screen.height)) {
@@ -355,7 +364,9 @@ public class PoseController : MonoBehaviour
         if (penguinModel != null && penguinShadow != null) {
             penguinModel.GetComponent<Renderer>().enabled = isVisible;
             penguinShadow.GetComponent<Renderer>().enabled = isVisible;
+			isShown = isVisible;
         }
+
     }
 
     private bool IsPenguinInView()
@@ -363,6 +374,17 @@ public class PoseController : MonoBehaviour
         Vector3 viewPos = cam.WorldToViewportPoint(penguinCollider.bounds.center);
         return (viewPos.x > 0.0f && viewPos.x < 1.0f && viewPos.y > 0.0f && viewPos.y < 1.0f && viewPos.z > 1.0f);
     }
+
+	public void CaptureDino() {
+		sequence = DOTween.Sequence();
+		sequence.Append(penguinModel.transform.DOScale(Vector3.zero, 0.5f).SetEase(Ease.InBack));
+		CanvasGroup cv = GameObject.Find("MsgCaptureSuccess").GetComponent<CanvasGroup>();
+		sequence.Join(cv.DOFade(1f, 0.2f));
+		sequence.AppendInterval(0.5f);
+		sequence.AppendCallback(() => {
+			GameManager.instance.GotoNextStages("DesTestFungusEnd");
+		});
+	}
 
     #endregion //PRIVATE_METHODS
 

@@ -59,9 +59,14 @@ public class EraChange : MonoBehaviour
 
 		sequence2 = DOTween.Sequence();
 		Transform earthModel = GameObject.Find("earthModel").transform;
-		sequence2.Append(earthModel.DOScale(Vector3.one * 3f,0.5f).SetEase(Ease.OutSine));
+		sequence2.Append(earthModel.DOScale(Vector3.one * 3f, 0.5f).SetEase(Ease.OutSine));
 		sequence2.Join(earthModel.DORotate(new Vector3(0, 7200f, 0), 1f, RotateMode.FastBeyond360)).SetEase(Ease.InOutExpo);
-		sequence2.InsertCallback(0.5f, ()=>earthModel.GetComponent<EarthBehaviour>().SetTexture(Cname));
+		sequence2.InsertCallback(0.6f, () => {
+			EarthBehaviour earthbehaviour = earthModel.GetComponent<EarthBehaviour>();
+			earthbehaviour.SetTexture(Cname);
+			earthbehaviour.SetPinPointChangeTimeEra(EarthLevelManager.instance.currentLocation, EarthLevelManager.instance.currentTimeEra);
+
+		});
 		sequence2.Insert(0.5f, earthModel.DOScale(Vector3.one,0.5f).SetEase(Ease.InSine));
 
 	}

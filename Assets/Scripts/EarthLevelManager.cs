@@ -36,7 +36,8 @@ public class EarthLevelManager : MonoBehaviour
 		get { return _isConfirmable; }
 		set
 		{
-			if (_isConfirmable != value) {
+			if (_isConfirmable != value)
+			{
 				_isConfirmable = value;
 				if (value)
 					SetButtonConfirmEnabled(true);
@@ -52,19 +53,34 @@ public class EarthLevelManager : MonoBehaviour
 		CanvasGroup cv = GameObject.Find("Canvas").transform.Find("ConfirmButton").GetComponent<CanvasGroup>();
 		Sequence sequence = DOTween.Sequence();
 		sequence.Append(cv.DOFade(target ? 1f : 0f, 0.5f));
-		sequence.AppendCallback(() => cv.interactable = target);
+		sequence.AppendCallback(() =>
+		{
+			cv.interactable = target;
+			cv.blocksRaycasts = target;
+		});
 	}
 
-	private void Update() {
+	private void Update()
+	{
 		if (currentTimeEra != TimeEra.Modern && currentLocation != Location.None)
 			isConfirmable = true;
 	}
 
-	public void ConfirmNextLevel() {
+	public void ConfirmNextLevel()
+	{
+		SetHintText hint = GameObject.Find("Hint").GetComponent<SetHintText>();
 		if (currentTimeEra == TimeEra.Jurassic && currentLocation == Location.Wyoming)
 		{
-			GameManager.instance.GotoNextStages("Vuforia-3-ARScene-Dino");
+			hint.SetHintTextContent(true, () =>
+			{
+				Debug.Log("<b>EarthLevelManager</b>: To Next Level");
+				GameManager.instance.GotoNextStages("Vuforia-3-ARScene-Dino");
+			});
+
 		}
+		else
+			hint.SetHintTextContent(false);
+
 	}
 }
 

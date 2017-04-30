@@ -45,7 +45,7 @@ public class EarthBehaviour : MonoBehaviour
 
 			if (Physics.Raycast(ray, out hitInfo))
 			{
-				if (earthModel.transform.childCount > 0 && earthModel.transform.GetChild(0).gameObject.name.ToLower().Contains("sphere"))
+				if (earthModel.transform.childCount > 0 && earthModel.transform.GetChild(0).gameObject.name.ToLower().Contains("pinpoint"))
 				{
 					Destroy(earthModel.transform.GetChild(0).gameObject);
 				}
@@ -55,7 +55,6 @@ public class EarthBehaviour : MonoBehaviour
 
 			}
 		}
-		else SetLocationName(-1);
 		//Debug.Log("inputAxis:" + InputController.instance.GetTouchMoveAxis());
 		earthModel.Rotate(new Vector3(0f, InputController.instance.GetTouchMoveAxis().x * (-1f), 0f));
 		Vector3 relPos = transform.InverseTransformPoint(lightPosition.position);
@@ -87,23 +86,42 @@ public class EarthBehaviour : MonoBehaviour
 		{
 			var vss = targetLocation[currentSelectedLocation];
 			var indx = vss.eraLocalPos.ToList().FindIndex(p => p.era == EarthLevelManager.instance.currentTimeEra);
-			if (indx > 0)
+			if (indx >= 0)
 			{
 				GameObject go = Instantiate(pinObject, earthModel);
+				go.name = "Pinpoint";
 				go.transform.SetAsFirstSibling();
 
-				go.transform.localPosition = targetLocation[currentSelectedLocation].eraLocalPos[indx].localPos * 1.1f;
+				go.transform.localPosition = targetLocation[currentSelectedLocation].eraLocalPos[indx].localPos;
 			}
 
 		}
 		else
 		{
 			GameObject go = Instantiate(pinObject, earthModel);
+			go.name = "Pinpoint";
 			go.transform.SetAsFirstSibling();
 
 			go.transform.position = hitInfo.point;
 		}
 		SetLocationName(currentSelectedLocation);
+	}
+
+	internal void SetPinPointChangeTimeEra(EarthLevelManager.Location currentLocation, EarthLevelManager.TimeEra currentTimeEra)
+	{
+		if (currentLocation == EarthLevelManager.Location.None)
+			return;
+		Debug.Log("<b>EarthBehaviour:</b> currentLocation -> " + currentLocation.ToString() + "; currentTimeEra -> " + currentTimeEra.ToString());
+		Transform pinpoint = transform.Find("Pinpoint");
+		for (int i = 0; i < targetLocation.Length; i++)
+			if (currentLocation == targetLocation[i].name) {
+				var vss = targetLocation[i];
+				for (int j = 0; j < vss.eraLocalPos.Length; j++)
+					if (currentTimeEra == vss.eraLocalPos[j].era) {
+						pinpoint.localPosition = vss.eraLocalPos[j].localPos;
+						return;
+					}
+			}
 	}
 
 	int CheckHitInfo(Vector3 hitPoint)
@@ -115,8 +133,13 @@ public class EarthBehaviour : MonoBehaviour
 		{
 			VectorStringStruct vss = targetLocation[i];
 			int indx = vss.eraLocalPos.ToList().FindIndex(p => p.era == EarthLevelManager.instance.currentTimeEra);
-			if (Vector3.Distance(localspace, vss.eraLocalPos[indx].localPos) < 0.1f)
+			if (indx == -1)
+				return -1;
+			float length = Vector3.Distance(localspace, vss.eraLocalPos[indx].localPos);
+			if (Vector3.Distance(localspace, vss.eraLocalPos[indx].localPos) < 0.3f){
+				Debug.Log("<b>EarthBehaviour:</b> Find vss location, location: " + vss.name.ToString() + "; Era -> " + vss.eraLocalPos[indx].era.ToString());
 				return i;
+			}
 
 			//vss.eraLocalPos;
 		}

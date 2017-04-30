@@ -13,3 +13,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Vuforia-1-Loading.unity
   - enabled: 1
     path: Assets/Scenes/Vuforia-2-ARScene.unity
+  - enabled: 1
+    path: Assets/Scenes/Vuforia-3-ARScene-Dino.unity
+  - enabled: 1
+    path: Assets/Scenes/DesTestFungusEnd.unity
